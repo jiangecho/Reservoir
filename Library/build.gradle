@@ -1,15 +1,15 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
-        classpath 'com.novoda:bintray-release:0.2.10'
-    }
-}
+//buildscript {
+//    repositories {
+//        mavenCentral()
+//        jcenter()
+//    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:1.2.3'
+//        classpath 'com.novoda:bintray-release:0.2.10'
+//    }
+//}
+//apply plugin: 'bintray-release'
 apply plugin: 'android-library'
-apply plugin: 'bintray-release'
 
 repositories {
     mavenCentral()
@@ -32,14 +32,14 @@ dependencies {
     compile 'com.jakewharton:disklrucache:2.0.2'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'commons-io:commons-io:2.4'
-    compile 'io.reactivex:rxandroid:0.24.0'
+    compile 'io.reactivex:rxandroid:1.1.0'
 }
 
-publish {
-    userOrg = 'anupcowkur'
-    groupId = 'com.anupcowkur'
-    artifactId = 'reservoir'
-    publishVersion = project.VERSION_NAME
-    description = 'Android library to easily serialize and cache your objects to disk using key/value pairs.'
-    website = 'https://github.com/anupcowkur/Reservoir'
-}
+//publish {
+//    userOrg = 'anupcowkur'
+//    groupId = 'com.anupcowkur'
+//    artifactId = 'reservoir'
+//    publishVersion = project.VERSION_NAME
+//    description = 'Android library to easily serialize and cache your objects to disk using key/value pairs.'
+//    website = 'https://github.com/anupcowkur/Reservoir'
+//}
