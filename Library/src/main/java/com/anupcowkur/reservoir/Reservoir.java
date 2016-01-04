@@ -1,9 +1,9 @@
 package com.anupcowkur.reservoir;
 
-import com.google.gson.Gson;
-
 import android.content.Context;
 import android.os.AsyncTask;
+
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +12,6 @@ import java.util.Collection;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * The main reservoir class.
@@ -43,9 +41,9 @@ public class Reservoir {
      *
      * @param context context.
      * @param maxSize the maximum size in bytes.
-     * @param gson the Gson instance
+     * @param gson    the Gson instance
      */
-    public static synchronized void init(final Context context, final long maxSize, final Gson gson ) throws Exception {
+    public static synchronized void init(final Context context, final long maxSize, final Gson gson) throws Exception {
 
         //Create a directory inside the application specific cache directory. This is where all
         // the key-value pairs will be stored.
@@ -149,7 +147,7 @@ public class Reservoir {
                     subscriber.onError(exception);
                 }
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });//.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     /**
@@ -171,7 +169,7 @@ public class Reservoir {
     /**
      * Get an object from Reservoir with the given key. This a blocking IO operation.
      *
-     * @param key      the key string.
+     * @param key     the key string.
      * @param typeOfT the type of the expected return object.
      * @return the object of the given type if it exists.
      */
@@ -215,7 +213,7 @@ public class Reservoir {
     /**
      * Get an object from Reservoir with the given key asynchronously.
      *
-     * @param key the key string.
+     * @param key      the key string.
      * @param classOfT the class type of the expected return object.
      * @return an {@link Observable} that will fetch the object from Reservoir. By default, this
      * will be scheduled on a background thread and will be observed on the main thread.
@@ -233,15 +231,16 @@ public class Reservoir {
                     subscriber.onError(exception);
                 }
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });
+        //.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     /**
      * Get an object from Reservoir with the given key asynchronously.
      *
-     * @param key the key string.
+     * @param key      the key string.
      * @param classOfT the class type of the expected return object.
-     * @param typeOfT the type of the collection object which contains objects of type {@code classOfT}.
+     * @param typeOfT  the type of the collection object which contains objects of type {@code classOfT}.
      * @return an {@link Observable} that will fetch the object from Reservoir. By default, this
      * will be scheduled on a background thread and will be observed on the main thread.
      */
@@ -260,7 +259,8 @@ public class Reservoir {
                     subscriber.onError(exception);
                 }
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });
+        //.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     /**
@@ -311,7 +311,7 @@ public class Reservoir {
                     subscriber.onError(exception);
                 }
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });//.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     /**
@@ -351,7 +351,7 @@ public class Reservoir {
                     subscriber.onError(exception);
                 }
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });//.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     /**
